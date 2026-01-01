@@ -19,15 +19,6 @@ body {
   background: #fff;
 }
 
-/* 共通コンテナ（ここに揃える） */
-.container {
-  max-width: var(--container);
-  margin: 0 auto;
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
-}
-
-/* ===== Header ===== */
 .site-header {
   position: sticky;
   top: 0;
@@ -37,6 +28,9 @@ body {
 }
 
 .site-header__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 10px var(--gutter);
   height: var(--header-h);
   display: flex;
   align-items: center;
@@ -73,19 +67,19 @@ body {
   opacity: 0.7;
 }
 
-/* ===== Main ===== */
 .site-main {
-  padding: 0;
+  width: 100%;
 }
 
-/* ===== Footer ===== */
 .site-footer {
   border-top: 1px solid var(--border);
   background: #fff;
 }
 
 .site-footer__inner {
-  padding: 18px 0;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 18px var(--gutter);
   text-align: center;
   color: #666;
   font-size: 14px;
