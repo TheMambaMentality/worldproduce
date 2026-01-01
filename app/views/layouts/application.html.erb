@@ -11,24 +11,31 @@
 
   <body>
     <header class="site-header">
-      <div class="container header-inner">
-        <div class="logo">WORLDPRODUCE</div>
-        <nav class="nav">
-          <a href="#">News</a>
-          <a href="#">Store</a>
-          <a href="#">Company</a>
-          <a href="#">Contact</a>
-        </nav>
+      <div class="container">
+        <div class="site-header__inner">
+          <%= link_to root_path, class: "site-header__brand" do %>
+            <%= image_tag "logo.jpg", alt: "WORLD PRODUCE", class: "site-header__logo" %>
+          <% end %>
+
+          <nav class="site-header__nav" aria-label="Primary">
+            <%= link_to "News", news_path, class: "site-header__link" %>
+            <%= link_to "Store", store_path, class: "site-header__link" %>
+            <%= link_to "Company", company_path, class: "site-header__link" %>
+            <%= link_to "Contact", contact_path, class: "site-header__link" %>
+          </nav>
+        </div>
       </div>
     </header>
 
-    <main>
+    <main class="site-main">
       <%= yield %>
     </main>
 
     <footer class="site-footer">
       <div class="container">
-        <small>© <%= Time.current.year %> Worldproduce</small>
+        <div class="site-footer__inner">
+          © 2026 Worldproduce
+        </div>
       </div>
     </footer>
   </body>

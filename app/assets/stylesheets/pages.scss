@@ -1,3 +1,11 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.hero {
+  height: 100vh;
+  background: #111;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.hero__inner {
+  text-align: center;
+}
