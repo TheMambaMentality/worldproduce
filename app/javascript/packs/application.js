@@ -8,6 +8,8 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import "../hero_slides" // ★追加（Heroスライド）
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

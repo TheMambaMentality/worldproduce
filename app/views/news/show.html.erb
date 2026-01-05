@@ -1,0 +1,17 @@
+<section class="section">
+  <div class="section__inner">
+    <h1 class="section__title"><%= @news.title %></h1>
+
+    <p class="section__lead">
+      <%= @news.published_at.strftime("%Y.%m.%d") %>
+    </p>
+
+    <div class="newsBody">
+      <%= simple_format(@news.body) %>
+    </div>
+
+    <div class="newsMore">
+      <%= link_to "News一覧へ戻る", "/news", class: "btn btn--ghost" %>
+    </div>
+  </div>
+</section>

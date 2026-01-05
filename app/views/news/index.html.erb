@@ -1,2 +1,20 @@
-<h1>News</h1>
-<p>準備中</p>
+<section class="section">
+  <div class="section__inner">
+    <h1 class="section__title">News</h1>
+    <p class="section__lead">最新のお知らせを掲載しています。</p>
+
+    <div class="newsList">
+      <% @news.each do |news| %>
+        <article class="newsItem">
+          <time class="newsItem__date">
+            <%= news.published_at.strftime("%Y.%m.%d") %>
+          </time>
+
+          <h2 class="newsItem__title">
+            <%= link_to news.title, news_path(news) %>
+          </h2>
+        </article>
+      <% end %>
+    </div>
+  </div>
+</section>
