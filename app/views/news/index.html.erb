@@ -6,13 +6,22 @@
     <div class="newsList">
       <% @news.each do |news| %>
         <article class="newsItem">
-          <time class="newsItem__date">
-            <%= news.published_at.strftime("%Y.%m.%d") %>
-          </time>
+          <%= link_to news_path(news), class: "newsItem__link" do %>
 
-          <h2 class="newsItem__title">
-            <%= link_to news.title, news_path(news) %>
-          </h2>
+            <div class="newsItem__thumb">
+              <% if news.images.attached? %>
+                <%= image_tag news.images.first, class: "newsItem__img", alt: news.title %>
+              <% else %>
+                <%= image_tag "logo.jpg", class: "newsItem__img", alt: "WORLD PRODUCE" %>
+              <% end %>
+            </div>
+
+            <time class="newsItem__date">
+              <%= news.published_at.strftime("%Y.%m.%d") %>
+            </time>
+
+            <h2 class="newsItem__title"><%= news.title %></h2>
+          <% end %>
         </article>
       <% end %>
     </div>

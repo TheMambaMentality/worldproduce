@@ -1,0 +1,38 @@
+<%= form_with model: @article,
+              url: (@article.persisted? ? admin_news_path(@article) : admin_news_index_path),
+              local: true do |f| %>
+
+  <% if @article.errors.any? %>
+    <div>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :title, "タイトル" %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :published_at, "公開日時" %><br>
+    <%= f.datetime_select :published_at %>
+  </div>
+
+  <div>
+    <%= f.label :body, "本文" %><br>
+    <%= f.text_area :body, rows: 10 %>
+  </div>
+
+  <div>
+    <%= f.label :images, "画像（複数OK）" %><br>
+    <%= f.file_field :images, multiple: true %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

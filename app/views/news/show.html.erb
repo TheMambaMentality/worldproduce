@@ -1,17 +1,38 @@
 <section class="section">
   <div class="section__inner">
+    <p class="newsItem__date"><%= @news.published_at.strftime("%Y.%m.%d") %></p>
     <h1 class="section__title"><%= @news.title %></h1>
 
-    <p class="section__lead">
-      <%= @news.published_at.strftime("%Y.%m.%d") %>
-    </p>
+    <div class="newsGallery">
+      <% if @news.images.attached? %>
+        <% @news.images.each do |img| %>
+          <div class="newsGallery__item">
+            <%= image_tag img, class: "newsGallery__img", alt: @news.title %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="newsGallery__item">
+          <%= image_tag "logo.jpg", class: "newsGallery__img", alt: "WORLD PRODUCE" %>
+        </div>
+      <% end %>
+    </div>
 
     <div class="newsBody">
       <%= simple_format(@news.body) %>
     </div>
 
-    <div class="newsMore">
-      <%= link_to "News一覧へ戻る", "/news", class: "btn btn--ghost" %>
+    <div class="newsNav">
+      <%= link_to "News一覧へ戻る", news_index_path, class: "btn btn--ghost" %>
+
+      <div class="newsNav__pager">
+        <% if @prev_news %>
+          <%= link_to "前へ", news_path(@prev_news), class: "btn btn--ghost" %>
+        <% end %>
+
+        <% if @next_news %>
+          <%= link_to "次へ", news_path(@next_news), class: "btn btn--ghost" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </section>

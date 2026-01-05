@@ -1,8 +1,16 @@
-/* ===== Intro (Pinned Hero) ===== */
+/* app/assets/stylesheets/pages.scss */
+/* ===== Top / Pages (Home) ===== */
+
+:root {
+  --container: 1200px;
+  --gutter: 24px;
+  --header-h: 72px;
+  --border: rgba(0,0,0,0.08);
+}
+
+/* ===== Intro (Hero Video) ===== */
 .intro {
   height: 300vh;
-
-  /* JSで更新する演出用CSS変数 */
   --intro-dim: 0.25;
   --intro-blur: 0px;
   --intro-scale: 1.03;
@@ -23,7 +31,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-
   transform: scale(var(--intro-scale));
   filter: saturate(1.05) contrast(1.05) blur(var(--intro-blur));
 }
@@ -32,7 +39,6 @@
   position: absolute;
   inset: 0;
   opacity: var(--intro-dim);
-
   background:
     radial-gradient(900px 520px at 50% 45%, rgba(255,255,255,0.12), transparent 60%),
     linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.72));
@@ -53,11 +59,9 @@
   place-items: center;
   text-align: center;
   color: #fff;
-
   opacity: var(--slide-op, 0);
   transform: translateY(var(--slide-y, 10px));
   filter: blur(var(--slide-blur, 0px));
-
   transition: opacity 220ms linear, transform 220ms ease, filter 220ms ease;
   pointer-events: none;
 }
@@ -69,15 +73,6 @@
   letter-spacing: 0.18em;
   font-size: 12px;
   opacity: 0.75;
-}
-
-/* ✅ 提供価値（Slide3）の見出しだけ大きく */
-.slide[data-slide="2"] .slide__eyebrow {
-  font-size: 18px;         /* ← さらに大きく */
-  letter-spacing: 0.22em;
-  opacity: 0.95;
-  margin-bottom: 14px;
-  text-shadow: 0 1px 10px rgba(0,0,0,0.35);
 }
 
 .slide__title {
@@ -108,49 +103,39 @@
   flex-wrap: wrap;
 }
 
-/* ===== 提供価値 ===== */
+/* ===== Value Grid (if you use it in hero) ===== */
 .valueGrid {
   margin-top: 22px;
   width: 100%;
-  max-width: 1020px;
-
-  background: rgba(255,255,255,0.90);
+  max-width: 980px;
+  background: rgba(255,255,255,0.88);
   border-radius: 14px;
   border: 1px solid rgba(0,0,0,0.08);
-  padding: 22px;
-
+  padding: 18px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px 22px;
-
+  gap: 14px 18px;
   text-align: left;
   color: #111;
 }
-
-.valueCard__title {
-  margin: 0 0 8px;
-  font-size: 16px;
-  font-weight: 800;
-}
-
-.valueCard__text {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.8;
-  color: #333;
-}
-
-.valueCard--red   .valueCard__title { color: #c0392b; }
-.valueCard--blue  .valueCard__title { color: #2e86de; }
-.valueCard--yellow .valueCard__title { color: #b8860b; }
-.valueCard--pink  .valueCard__title { color: #b33771; }
-.valueCard--green .valueCard__title { color: #218c74; }
-.valueCard--teal  .valueCard__title { color: #0a7ea4; }
 
 @media (max-width: 900px) {
   .valueGrid { grid-template-columns: 1fr; }
 }
 
+.valueCard__title {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 800;
+}
+.valueCard__text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* ===== Scroll hint ===== */
 .intro__scroll {
   position: absolute;
   left: 50%;
@@ -177,166 +162,98 @@
 }
 
 @keyframes scrollLine {
-  0% { transform: translateY(0); opacity: 0.3; }
-  50% { transform: translateY(8px); opacity: 1; }
+  0%   { transform: translateY(0); opacity: 0.3; }
+  50%  { transform: translateY(8px); opacity: 1; }
   100% { transform: translateY(0); opacity: 0.3; }
 }
 
 /* ===== Sections ===== */
-.section {
-  padding: 72px 0;
-}
-
+.section { padding: 72px 0; }
 .section--alt {
   background: #fafafa;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
-
 .section__inner {
   max-width: var(--container);
   margin: 0 auto;
   padding: 0 var(--gutter);
 }
-
 .section__title {
   margin: 0 0 14px;
   font-size: 22px;
   letter-spacing: -0.01em;
 }
-
 .section__lead {
   margin: 0 0 26px;
   color: #444;
   line-height: 1.8;
 }
 
-/* ===== 事業内容：4つ＋アイコン ===== */
-.bizGrid {
+/* ===== Utility grids ===== */
+.grid3 {
   display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+@media (max-width: 900px) {
+  .grid3, .grid2 { grid-template-columns: 1fr; }
 }
 
+/* ===== Business grid ===== */
+.bizGrid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 @media (max-width: 1100px) {
   .bizGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-
 @media (max-width: 700px) {
   .bizGrid { grid-template-columns: 1fr; }
 }
 
-.card.bizCard {
-  padding: 14px;
+/* Cards (biz cards etc.) */
+.card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  background: #fff;
 }
+.card--flat { background: transparent; }
+.card__title { margin: 0 0 10px; font-size: 16px; }
+.card__text { margin: 0; color: #444; line-height: 1.7; }
 
 .bizCard__icon {
-  width: 128px;
-  height: 128px;
-  margin: 0 auto 12px;
-  border-radius: 18px;
+  width: 144px;
+  height: 144px;
+  border-radius: 20px;
+  margin: 0 auto 16px;
   overflow: hidden;
-
   display: grid;
   place-items: center;
-
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.06);
 }
-
 .bizCard__img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transform: scale(1.15);
+  transform: scale(1.25);
   display: block;
 }
 
-/* タイトル・本文 */
-.card.bizCard .card__title {
-  font-size: 15px;
-  margin: 0 0 8px;
-}
-
-.card.bizCard .card__text {
-  font-size: 13px;
-  line-height: 1.65;
-  color: #444;
-}
-
-/* ===== News ===== */
-.newsList {
-  display: grid;
-  gap: 14px;
-}
-
-.newsItem {
-  padding: 16px;
-  border-radius: 14px;
-  background: #fff;
-  border: 1px solid var(--border);
-}
-
-.newsItem__date {
-  font-size: 12px;
-  color: #888;
-}
-
-.newsItem__title {
-  margin: 6px 0 0;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.newsItem__title a {
-  color: #111;
-  text-decoration: none;
-}
-
-.newsItem__title a:hover {
-  text-decoration: underline;
-}
-
-.newsMore {
-  margin-top: 18px;
-}
-
-.newsBody {
-  line-height: 1.9;
-  color: #222;
-}
-
-/* ===== Cards (共通) ===== */
-.card {
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: #fff;
-}
-
-.card--flat {
-  background: transparent;
-}
-
-.card__title {
-  margin: 0 0 10px;
-  font-size: 16px;
-}
-
-.card__text {
-  margin: 0;
-  color: #444;
-  line-height: 1.7;
-}
-
 /* ===== CTA ===== */
-.cta {
-  padding: 64px 0;
-}
-
+.cta { padding: 64px 0; }
 .cta__inner {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 28px var(--gutter);
+  padding: 0 var(--gutter);
   border: 1px solid var(--border);
   border-radius: 18px;
   background: #111;
@@ -345,33 +262,19 @@
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-}
-
-.cta__title {
-  margin: 0 0 10px;
-  font-size: 22px;
-}
-
-.cta__lead {
-  margin: 0;
-  opacity: 0.85;
-  line-height: 1.7;
-}
-
-.cta__actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  padding-top: 28px;
+  padding-bottom: 28px;
 }
 
 @media (max-width: 900px) {
-  .cta__inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  .cta__inner { flex-direction: column; align-items: flex-start; }
 }
 
-/* ===== Buttons ===== */
+.cta__title { margin: 0 0 10px; font-size: 22px; }
+.cta__lead { margin: 0; opacity: 0.85; line-height: 1.7; }
+.cta__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -383,19 +286,8 @@
   border: 1px solid transparent;
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
+.btn:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn--primary { background: #fff; color: #111; }
+.btn--ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
 
-.btn:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
-.btn--primary {
-  background: #fff;
-  color: #111;
-}
-
-.btn--ghost {
-  background: transparent;
-  color: #fff;
-  border-color: rgba(255,255,255,0.35);
-}
+/* NOTE: News の .newsList/.newsItem はここに置かない（news.scssへ） */
