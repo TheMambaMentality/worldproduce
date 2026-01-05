@@ -1,2 +1,58 @@
-<h1>Contact</h1>
-<p>準備中</p>
+<div class="page">
+  <div class="page__inner">
+    <header class="page__header">
+      <h1 class="page__title">Contact</h1>
+      <p class="page__lead">お問い合わせは下記フォームよりお願いいたします。</p>
+    </header>
+
+    <div class="content-box">
+      <%= form_with url: contact_path, method: :post, local: true, class: "contactForm" do |f| %>
+
+        <div class="contactForm__grid2">
+          <div class="contactForm__field">
+            <%= f.label :name, "お名前", class: "contactForm__label" %>
+            <%= f.text_field :name, class: "contactForm__input", autocomplete: "name" %>
+          </div>
+
+          <div class="contactForm__field">
+            <%= f.label :phone, "電話番号", class: "contactForm__label" %>
+            <%= f.telephone_field :phone, class: "contactForm__input", autocomplete: "tel" %>
+          </div>
+        </div>
+
+        <div class="contactForm__field">
+          <div class="contactForm__label">お問い合わせ内容</div>
+
+          <div class="contactForm__radios">
+            <% [
+              ["イベント開催申込", "event"],
+              ["お見積もりご依頼", "estimate"],
+              ["日程相談", "schedule"],
+              ["その他ご相談", "other"]
+            ].each_with_index do |(label, value), i| %>
+              <div class="contactForm__radioItem">
+                <%= f.radio_button :category, value, id: "inquiry_category_#{i}", class: "contactForm__radio" %>
+                <%= f.label :category, label, for: "inquiry_category_#{i}", class: "contactForm__radioLabel" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="contactForm__field">
+          <%= f.label :email, "メールアドレス", class: "contactForm__label" %>
+          <%= f.email_field :email, class: "contactForm__input", autocomplete: "email" %>
+        </div>
+
+        <div class="contactForm__field">
+          <%= f.label :message, "メッセージ", class: "contactForm__label" %>
+          <%= f.text_area :message, class: "contactForm__textarea", rows: 10 %>
+        </div>
+
+        <div class="contactForm__actions">
+          <%= f.submit "送信する", class: "contactForm__submit" %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

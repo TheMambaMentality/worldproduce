@@ -1,0 +1,725 @@
+[1mdiff --git a/app/assets/stylesheets/application.css b/app/assets/stylesheets/application.css[m
+[1mindex a1eaadd..c63433c 100644[m
+[1m--- a/app/assets/stylesheets/application.css[m
+[1m+++ b/app/assets/stylesheets/application.css[m
+[36m@@ -2,87 +2,83 @@[m
+  *= require_self[m
+  *= require pages[m
+  *= require news[m
+[32m+[m[32m *= require store[m
+[32m+[m[32m *= require company[m
+[32m+[m[32m *= require contact[m
+  */[m
+ [m
+[31m- :root {[m
+[31m-  --container: 1200px;[m
+[31m-  --gutter: 24px;[m
+[31m-  --header-h: 72px;[m
+[31m-  --border: rgba(0,0,0,0.08);[m
+[31m-}[m
+[32m+[m[32m * { box-sizing: border-box; }[m
+ [m
+[31m-* { box-sizing: border-box; }[m
+[31m-[m
+[31m-body {[m
+[31m-  margin: 0;[m
+[31m-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,[m
+[31m-    "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;[m
+[31m-  color: #111;[m
+[31m-  background: #fff;[m
+[31m-}[m
+[31m-[m
+[31m-.site-header {[m
+[31m-  position: sticky;[m
+[31m-  top: 0;[m
+[31m-  z-index: 1000;[m
+[31m-  background: #fff;[m
+[31m-  border-bottom: 1px solid var(--border);[m
+[31m-}[m
+[31m-[m
+[31m-.site-header__inner {[m
+[31m-  max-width: var(--container);[m
+[31m-  margin: 0 auto;[m
+[31m-  padding: 10px var(--gutter);[m
+[31m-  height: var(--header-h);[m
+[31m-  display: flex;[m
+[31m-  align-items: center;[m
+[31m-  justify-content: space-between;[m
+[31m-}[m
+[31m-[m
+[31m-.site-header__brand {[m
+[31m-  display: inline-flex;[m
+[31m-  align-items: center;[m
+[31m-  text-decoration: none;[m
+[31m-}[m
+[31m-[m
+[31m-.site-header__logo {[m
+[31m-  height: 44px;[m
+[31m-  width: auto;[m
+[31m-  display: block;[m
+[31m-}[m
+[31m-[m
+[31m-.site-header__nav {[m
+[31m-  display: flex;[m
+[31m-  gap: 22px;[m
+[31m-  align-items: center;[m
+[31m-}[m
+[31m-[m
+[31m-.site-header__link {[m
+[31m-  text-decoration: none;[m
+[31m-  color: #111;[m
+[31m-  font-weight: 600;[m
+[31m-  letter-spacing: 0.02em;[m
+[31m-  padding: 8px 2px;[m
+[31m-}[m
+[31m-[m
+[31m-.site-header__link:hover {[m
+[31m-  opacity: 0.7;[m
+[31m-}[m
+[31m-[m
+[31m-.site-main {[m
+[31m-  width: 100%;[m
+[31m-}[m
+[31m-[m
+[31m-.site-footer {[m
+[31m-  border-top: 1px solid var(--border);[m
+[31m-  background: #fff;[m
+[31m-}[m
+[31m-[m
+[31m-.site-footer__inner {[m
+[31m-  max-width: var(--container);[m
+[31m-  margin: 0 auto;[m
+[31m-  padding: 18px var(--gutter);[m
+[31m-  text-align: center;[m
+[31m-  color: #666;[m
+[31m-  font-size: 14px;[m
+[31m-}[m
+\ No newline at end of file[m
+[32m+[m[32m body {[m
+[32m+[m[32m   margin: 0;[m
+[32m+[m[32m   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,[m
+[32m+[m[32m     "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;[m
+[32m+[m[32m   color: #111;[m
+[32m+[m[32m   background: #fff;[m
+[32m+[m[32m }[m
+[32m+[m[41m [m
+[32m+[m[32m .site-header {[m
+[32m+[m[32m   position: sticky;[m
+[32m+[m[32m   top: 0;[m
+[32m+[m[32m   z-index: 1000;[m
+[32m+[m[32m   background: #fff;[m
+[32m+[m[32m   border-bottom: 1px solid var(--border);[m
+[32m+[m[32m }[m
+[32m+[m[41m [m
+[32m+[m[32m .site-header__inner {[m
+[32m+[m[32m   max-width: var(--container);[m
+[32m+[m[32m   margin: 0 auto;[m
+[32m+[m[32m   padding: 10px var(--gutter);[m
+[32m+[m[32m   height: var(--header-h);[m
+[32m+[m[32m   display: flex;[m
+[32m+[m[32m   align-items: center;[m
+[32m+[m[32m   justify-content: space-between;[m
+[32m+[m[32m }[m
+[32m+[m[41m [m
+[32m+[m[32m .site-header__brand {[m
+[32m+[m[32m   display: inline-flex;[m
+[32m+[m[32m   align-items: center;[m
+[32m+[m[32m   text-decoration: none;[m
+[32m+[m[32m }[m
+[32m+[m[41m [m
+[32m+[m[32m .site-header__logo {[m
+[32m+[m[32m   height: 44px;[m
+[32m+[m[32m   width: auto;[m
+[32m+[m[32m   display: block;[m
+[32m+[m[32m }[m
+[32m+[m[41m [m
+[32m+[m[32m .site-header__nav {[m
+[32m+[m[32m   display: flex;[m
+[32m+[m[32m   gap: 22px;[m
+[32m+[m[32m   align-items: center;[m
+[32m+[m[32m }[m
+[32m+[m[41m [m
+[32m+[m[32m .site-header__link {[m
+[32m+[m[32m   text-decoration: none;[m
+[32m+[m[32m   color: #111;[m
+[32m+[m[32m   font-weight: 600;[m
+[32m+[m[32m   letter-spacing: 0.02em;[m
+[32m+[m[32m   padding: 8px 2px;[m
+[32m+[m[32m }[m
+[32m+[m[41m [m
+[32m+[m[32m .site-header__link:hover {[m
+[32m+[m[32m   opacity: 0.7;[m
+[32m+[m[32m }[m
+[32m+[m[41m [m
+[32m+[m[32m .site-main {[m
+[32m+[m[32m   width: 100%;[m
+[32m+[m[32m }[m
+[32m+[m[41m [m
+[32m+[m[32m .site-footer {[m
+[32m+[m[32m   border-top: 1px solid var(--border);[m
+[32m+[m[32m   background: #fff;[m
+[32m+[m[32m }[m
+[32m+[m[41m [m
+[32m+[m[32m .site-footer__inner {[m
+[32m+[m[32m   max-width: var(--container);[m
+[32m+[m[32m   margin: 0 auto;[m
+[32m+[m[32m   padding: 18px var(--gutter);[m
+[32m+[m[32m   text-align: center;[m
+[32m+[m[32m   color: #666;[m
+[32m+[m[32m   font-size: 14px;[m
+[32m+[m[32m }[m
+\ No newline at end of file[m
+[1mdiff --git a/app/assets/stylesheets/company.scss b/app/assets/stylesheets/company.scss[m
+[1mindex 1dc53fe..0f3ddac 100644[m
+[1m--- a/app/assets/stylesheets/company.scss[m
+[1m+++ b/app/assets/stylesheets/company.scss[m
+[36m@@ -1,3 +1,21 @@[m
+[31m-// Place all the styles related to the Company controller here.[m
+[31m-// They will automatically be included in application.css.[m
+[31m-// You can use Sass (SCSS) here: https://sass-lang.com/[m
+[32m+[m[32m.company-table {[m
+[32m+[m[32m    display: grid;[m
+[32m+[m[32m    gap: 16px;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .company-table > div {[m
+[32m+[m[32m    display: grid;[m
+[32m+[m[32m    grid-template-columns: 120px 1fr;[m
+[32m+[m[32m    gap: 12px;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .company-table dt {[m
+[32m+[m[32m    font-size: 13px;[m
+[32m+[m[32m    opacity: 0.6;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .company-table dd {[m
+[32m+[m[32m    margin: 0;[m
+[32m+[m[32m    font-size: 14px;[m
+[32m+[m[32m    line-height: 1.7;[m
+[32m+[m[32m  }[m
+\ No newline at end of file[m
+[1mdiff --git a/app/assets/stylesheets/contact.scss b/app/assets/stylesheets/contact.scss[m
+[1mindex 974c3a3..1f97a73 100644[m
+[1m--- a/app/assets/stylesheets/contact.scss[m
+[1m+++ b/app/assets/stylesheets/contact.scss[m
+[36m@@ -1,3 +1,91 @@[m
+[31m-// Place all the styles related to the Contact controller here.[m
+[31m-// They will automatically be included in application.css.[m
+[31m-// You can use Sass (SCSS) here: https://sass-lang.com/[m
+[32m+[m[32m/* Contact page */[m
+[32m+[m
+[32m+[m[32m.contactForm {[m
+[32m+[m[32m    display: grid;[m
+[32m+[m[32m    gap: 18px;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .contactForm__grid2 {[m
+[32m+[m[32m    display: grid;[m
+[32m+[m[32m    grid-template-columns: repeat(2, minmax(0, 1fr));[m
+[32m+[m[32m    gap: 18px;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  @media (max-width: 860px) {[m
+[32m+[m[32m    .contactForm__grid2 { grid-template-columns: 1fr; }[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .contactForm__field {[m
+[32m+[m[32m    display: grid;[m
+[32m+[m[32m    gap: 8px;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .contactForm__label {[m
+[32m+[m[32m    font-weight: 700;[m
+[32m+[m[32m    font-size: 14px;[m
+[32m+[m[32m    letter-spacing: 0.02em;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .contactForm__input,[m
+[32m+[m[32m  .contactForm__textarea {[m
+[32m+[m[32m    width: 100%;[m
+[32m+[m[32m    border: 1px solid rgba(0,0,0,0.14);[m
+[32m+[m[32m    border-radius: 10px;[m
+[32m+[m[32m    padding: 12px 14px;[m
+[32m+[m[32m    font-size: 14px;[m
+[32m+[m[32m    background: #fff;[m
+[32m+[m[32m    outline: none;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .contactForm__textarea {[m
+[32m+[m[32m    resize: vertical;[m
+[32m+[m[32m    min-height: 220px;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .contactForm__input:focus,[m
+[32m+[m[32m  .contactForm__textarea:focus {[m
+[32m+[m[32m    border-color: rgba(0,0,0,0.28);[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .contactForm__radios {[m
+[32m+[m[32m    display: flex;[m
+[32m+[m[32m    flex-wrap: wrap;[m
+[32m+[m[32m    gap: 14px 18px;[m
+[32m+[m[32m    align-items: center;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .contactForm__radioItem {[m
+[32m+[m[32m    display: inline-flex;[m
+[32m+[m[32m    align-items: center;[m
+[32m+[m[32m    gap: 8px;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .contactForm__radio {[m
+[32m+[m[32m    width: 16px;[m
+[32m+[m[32m    height: 16px;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .contactForm__radioLabel {[m
+[32m+[m[32m    font-size: 14px;[m
+[32m+[m[32m    font-weight: 600;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .contactForm__actions {[m
+[32m+[m[32m    display: flex;[m
+[32m+[m[32m    justify-content: flex-start;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .contactForm__submit {[m
+[32m+[m[32m    appearance: none;[m
+[32m+[m[32m    border: none;[m
+[32m+[m[32m    border-radius: 12px;[m
+[32m+[m[32m    padding: 12px 18px;[m
+[32m+[m[32m    font-weight: 800;[m
+[32m+[m[32m    cursor: pointer;[m
+[32m+[m[32m    background: #111;[m
+[32m+[m[32m    color: #fff;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .contactForm__submit:hover {[m
+[32m+[m[32m    opacity: 0.92;[m
+[32m+[m[32m  }[m
+\ No newline at end of file[m
+[1mdiff --git a/app/assets/stylesheets/pages.scss b/app/assets/stylesheets/pages.scss[m
+[1mindex 872d80c..fdeb00d 100644[m
+[1m--- a/app/assets/stylesheets/pages.scss[m
+[1m+++ b/app/assets/stylesheets/pages.scss[m
+[36m@@ -75,17 +75,13 @@[m
+   opacity: 0.75;[m
+ }[m
+ [m
+[31m-.slide__title {[m
+[31m-  margin: 0;[m
+[31m-  font-size: clamp(40px, 6vw, 72px);[m
+[31m-  letter-spacing: -0.02em;[m
+[31m-  line-height: 1.05;[m
+[31m-}[m
+[32m+[m[32m.slide__title { font-size: 40px; }[m
+[32m+[m[32m@media (min-width: 700px)  { .slide__title { font-size: 56px; } }[m
+[32m+[m[32m@media (min-width: 1100px) { .slide__title { font-size: 72px; } }[m
+ [m
+[31m-.slide__title--jp {[m
+[31m-  font-size: clamp(28px, 4.2vw, 56px);[m
+[31m-  letter-spacing: -0.01em;[m
+[31m-}[m
+[32m+[m[32m.slide__title--jp { font-size: 28px; }[m
+[32m+[m[32m@media (min-width: 700px)  { .slide__title--jp { font-size: 42px; } }[m
+[32m+[m[32m@media (min-width: 1100px) { .slide__title--jp { font-size: 56px; } }[m
+ [m
+ .slide__lead {[m
+   margin: 14px 0 0;[m
+[36m@@ -290,4 +286,42 @@[m
+ .btn--primary { background: #fff; color: #111; }[m
+ .btn--ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }[m
+ [m
+[31m-/* NOTE: News の .newsList/.newsItem はここに置かない（news.scssへ） */[m
+\ No newline at end of file[m
+[32m+[m[32m/* NOTE: News の .newsList/.newsItem はここに置かない（news.scssへ） */[m
+[32m+[m
+[32m+[m
+[32m+[m[32m/* =========================================================[m
+[32m+[m[32m   Common "Page" frame (Store / Company / Contact etc.)[m
+[32m+[m[32m   - Top(Home)の既存スタイルとは独立させるため、クラスは page__* に寄せる[m
+[32m+[m[32m   ========================================================= */[m
+[32m+[m
+[32m+[m[32m.page {[m
+[32m+[m[32m  padding: 56px 0;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.page__inner {[m
+[32m+[m[32m  width: 92%;[m
+[32m+[m[32m  max-width: 1100px;[m
+[32m+[m[32m  margin: 0 auto;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.page__header {[m
+[32m+[m[32m  margin-bottom: 24px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.page__title {[m
+[32m+[m[32m  font-size: 32px;[m
+[32m+[m[32m  letter-spacing: 0.02em;[m
+[32m+[m[32m  margin: 0 0 8px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.page__lead {[m
+[32m+[m[32m  margin: 0;[m
+[32m+[m[32m  opacity: 0.75;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.content-box {[m
+[32m+[m[32m  padding: 18px;[m
+[32m+[m[32m  border: 1px solid rgba(0,0,0,0.1);[m
+[32m+[m[32m  border-radius: 12px;[m
+[32m+[m[32m  background: #fff;[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/app/assets/stylesheets/store.scss b/app/assets/stylesheets/store.scss[m
+[1mindex b3e8e34..90c53a6 100644[m
+[1m--- a/app/assets/stylesheets/store.scss[m
+[1m+++ b/app/assets/stylesheets/store.scss[m
+[36m@@ -1,3 +1,85 @@[m
+[31m-// Place all the styles related to the Store controller here.[m
+[31m-// They will automatically be included in application.css.[m
+[31m-// You can use Sass (SCSS) here: https://sass-lang.com/[m
+[32m+[m[32m/* app/assets/stylesheets/store.scss */[m
+[32m+[m
+[32m+[m[32m.store-grid {[m
+[32m+[m[32m    display: grid;[m
+[32m+[m[32m    grid-template-columns: repeat(3, 1fr);[m
+[32m+[m[32m    gap: 18px;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  @media (max-width: 980px) {[m
+[32m+[m[32m    .store-grid { grid-template-columns: repeat(2, 1fr); }[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  @media (max-width: 640px) {[m
+[32m+[m[32m    .store-grid { grid-template-columns: 1fr; }[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .store-card {[m
+[32m+[m[32m    border: 1px solid rgba(0,0,0,0.1);[m
+[32m+[m[32m    border-radius: 14px;[m
+[32m+[m[32m    overflow: hidden;[m
+[32m+[m[32m    background: #fff;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .store-card__photo {[m
+[32m+[m[32m    aspect-ratio: 16 / 10;[m
+[32m+[m[32m    background: rgba(0,0,0,0.06);[m
+[32m+[m[32m    display: flex;[m
+[32m+[m[32m    align-items: center;[m
+[32m+[m[32m    justify-content: center;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .store-card__photo img {[m
+[32m+[m[32m    width: 100%;[m
+[32m+[m[32m    height: 100%;[m
+[32m+[m[32m    object-fit: cover;[m
+[32m+[m[32m    display: block;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  /* 使わないなら消してOK（今のerbでは使ってない） */[m
+[32m+[m[32m  .store-card__photo--placeholder span {[m
+[32m+[m[32m    font-size: 12px;[m
+[32m+[m[32m    letter-spacing: 0.15em;[m
+[32m+[m[32m    opacity: 0.6;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .store-card__body {[m
+[32m+[m[32m    padding: 14px 14px 16px;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .store-card__name {[m
+[32m+[m[32m    font-size: 18px;[m
+[32m+[m[32m    margin: 0 0 6px;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .store-card__facility {[m
+[32m+[m[32m    margin: 0 0 10px;[m
+[32m+[m[32m    opacity: 0.75;[m
+[32m+[m[32m    font-size: 14px;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .store-card__meta {[m
+[32m+[m[32m    margin: 0;[m
+[32m+[m[32m    display: grid;[m
+[32m+[m[32m    gap: 10px;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .store-card__meta dt {[m
+[32m+[m[32m    font-size: 12px;[m
+[32m+[m[32m    opacity: 0.6;[m
+[32m+[m[32m    margin-bottom: 2px;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .store-card__meta dd {[m
+[32m+[m[32m    margin: 0;[m
+[32m+[m[32m    font-size: 14px;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .store-card__meta a {[m
+[32m+[m[32m    color: inherit;[m
+[32m+[m[32m    text-decoration: none;[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+[32m+[m[32m  .store-card__meta a:hover {[m
+[32m+[m[32m    text-decoration: underline;[m
+[32m+[m[32m  }[m
+\ No newline at end of file[m
+[1mdiff --git a/app/controllers/company_controller.rb b/app/controllers/company_controller.rb[m
+[1mindex 2529b52..4c7c9f7 100644[m
+[1m--- a/app/controllers/company_controller.rb[m
+[1m+++ b/app/controllers/company_controller.rb[m
+[36m@@ -1,4 +1,4 @@[m
+ class CompanyController < ApplicationController[m
+   def index[m
+   end[m
+[31m-end[m
+[32m+[m[32mend[m
+\ No newline at end of file[m
+[1mdiff --git a/app/controllers/contact_controller.rb b/app/controllers/contact_controller.rb[m
+[1mindex 351a4fc..ee8a000 100644[m
+[1m--- a/app/controllers/contact_controller.rb[m
+[1m+++ b/app/controllers/contact_controller.rb[m
+[36m@@ -1,4 +1,11 @@[m
+ class ContactController < ApplicationController[m
+   def index[m
+   end[m
+[31m-end[m
+[32m+[m
+[32m+[m[32m  def create[m
+[32m+[m[32m    redirect_to contact_thanks_path[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  def thanks[m
+[32m+[m[32m  end[m
+[32m+[m[32mend[m
+\ No newline at end of file[m
+[1mdiff --git a/app/controllers/store_controller.rb b/app/controllers/store_controller.rb[m
+[1mindex bde7cb5..4ad30d6 100644[m
+[1m--- a/app/controllers/store_controller.rb[m
+[1m+++ b/app/controllers/store_controller.rb[m
+[36m@@ -1,4 +1,14 @@[m
+ class StoreController < ApplicationController[m
+   def index[m
+[32m+[m[32m    @stores = [[m
+[32m+[m[32m      # 後で実データに差し替えOK（今は箱）[m
+[32m+[m[32m      { name: "店舗A", facility: "商業施設A", address: "住所A", tel: "000-0000-0000", photo: nil },[m
+[32m+[m[32m      { name: "店舗B", facility: "商業施設B", address: "住所B", tel: "000-0000-0000", photo: nil },[m
+[32m+[m[32m      { name: "店舗C", facility: "商業施設C", address: "住所C", tel: "000-0000-0000", photo: nil },[m
+[32m+[m[32m      { name: "店舗D", facility: "商業施設D", address: "住所D", tel: "000-0000-0000", photo: nil },[m
+[32m+[m[32m      { name: "店舗E", facility: "商業施設E", address: "住所E", tel: "000-0000-0000", photo: nil },[m
+[32m+[m[32m      { name: "店舗F", facility: "商業施設F", address: "住所F", tel: "000-0000-0000", photo: nil },[m
+[32m+[m[32m      { name: "店舗G", facility: "商業施設G", address: "住所G", tel: "000-0000-0000", photo: nil }[m
+[32m+[m[32m    ][m
+   end[m
+[31m-end[m
+[32m+[m[32mend[m
+\ No newline at end of file[m
+[1mdiff --git a/app/views/company/index.html.erb b/app/views/company/index.html.erb[m
+[1mindex 33cdba8..947eeaf 100644[m
+[1m--- a/app/views/company/index.html.erb[m
+[1m+++ b/app/views/company/index.html.erb[m
+[36m@@ -1,2 +1,33 @@[m
+[31m-<h1>Company</h1>[m
+[31m-<p>準備中</p>[m
+[32m+[m[32m<div class="page">[m
+[32m+[m[32m  <div class="page__inner">[m
+[32m+[m
+[32m+[m[32m    <header class="page__header">[m
+[32m+[m[32m      <h1 class="page__title">Company</h1>[m
+[32m+[m[32m      <p class="page__lead">[m
+[32m+[m[32m        会社概要の簡単な説明文が入ります。あとで差し替え予定。[m
+[32m+[m[32m      </p>[m
+[32m+[m[32m    </header>[m
+[32m+[m
+[32m+[m[32m    <section class="content-box">[m
+[32m+[m[32m      <dl class="company-table">[m
+[32m+[m[32m        <div>[m
+[32m+[m[32m          <dt>会社名</dt>[m
+[32m+[m[32m          <dd>株式会社〇〇</dd>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div>[m
+[32m+[m[32m          <dt>所在地</dt>[m
+[32m+[m[32m          <dd>東京都〇〇区〇〇</dd>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div>[m
+[32m+[m[32m          <dt>設立</dt>[m
+[32m+[m[32m          <dd>20XX年X月</dd>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div>[m
+[32m+[m[32m          <dt>事業内容</dt>[m
+[32m+[m[32m          <dd>イベント企画・店舗運営 ほか</dd>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m      </dl>[m
+[32m+[m[32m    </section>[m
+[32m+[m
+[32m+[m[32m  </div>[m
+[32m+[m[32m</div>[m
+\ No newline at end of file[m
+[1mdiff --git a/app/views/contact/index.html.erb b/app/views/contact/index.html.erb[m
+[1mindex 5449bff..0f325e5 100644[m
+[1m--- a/app/views/contact/index.html.erb[m
+[1m+++ b/app/views/contact/index.html.erb[m
+[36m@@ -1,2 +1,58 @@[m
+[31m-<h1>Contact</h1>[m
+[31m-<p>準備中</p>[m
+\ No newline at end of file[m
+[32m+[m[32m<div class="page">[m
+[32m+[m[32m  <div class="page__inner">[m
+[32m+[m[32m    <header class="page__header">[m
+[32m+[m[32m      <h1 class="page__title">Contact</h1>[m
+[32m+[m[32m      <p class="page__lead">お問い合わせは下記フォームよりお願いいたします。</p>[m
+[32m+[m[32m    </header>[m
+[32m+[m
+[32m+[m[32m    <div class="content-box">[m
+[32m+[m[32m      <%= form_with url: contact_path, method: :post, local: true, class: "contactForm" do |f| %>[m
+[32m+[m
+[32m+[m[32m        <div class="contactForm__grid2">[m
+[32m+[m[32m          <div class="contactForm__field">[m
+[32m+[m[32m            <%= f.label :name, "お名前", class: "contactForm__label" %>[m
+[32m+[m[32m            <%= f.text_field :name, class: "contactForm__input", autocomplete: "name" %>[m
+[32m+[m[32m          </div>[m
+[32m+[m
+[32m+[m[32m          <div class="contactForm__field">[m
+[32m+[m[32m            <%= f.label :phone, "電話番号", class: "contactForm__label" %>[m
+[32m+[m[32m            <%= f.telephone_field :phone, class: "contactForm__input", autocomplete: "tel" %>[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m        </div>[m
+[32m+[m
+[32m+[m[32m        <div class="contactForm__field">[m
+[32m+[m[32m          <div class="contactForm__label">お問い合わせ内容</div>[m
+[32m+[m
+[32m+[m[32m          <div class="contactForm__radios">[m
+[32m+[m[32m            <% [[m
+[32m+[m[32m              ["イベント開催申込", "event"],[m
+[32m+[m[32m              ["お見積もりご依頼", "estimate"],[m
+[32m+[m[32m              ["日程相談", "schedule"],[m
+[32m+[m[32m              ["その他ご相談", "other"][m
+[32m+[m[32m            ].each_with_index do |(label, value), i| %>[m
+[32m+[m[32m              <div class="contactForm__radioItem">[m
+[32m+[m[32m                <%= f.radio_button :category, value, id: "inquiry_category_#{i}", class: "contactForm__radio" %>[m
+[32m+[m[32m                <%= f.label :category, label, for: "inquiry_category_#{i}", class: "contactForm__radioLabel" %>[m
+[32m+[m[32m              </div>[m
+[32m+[m[32m            <% end %>[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m        </div>[m
+[32m+[m
+[32m+[m[32m        <div class="contactForm__field">[m
+[32m+[m[32m          <%= f.label :email, "メールアドレス", class: "contactForm__label" %>[m
+[32m+[m[32m          <%= f.email_field :email, class: "contactForm__input", autocomplete: "email" %>[m
+[32m+[m[32m        </div>[m
+[32m+[m
+[32m+[m[32m        <div class="contactForm__field">[m
+[32m+[m[32m          <%= f.label :message, "メッセージ", class: "contactForm__label" %>[m
+[32m+[m[32m          <%= f.text_area :message, class: "contactForm__textarea", rows: 10 %>[m
+[32m+[m[32m        </div>[m
+[32m+[m
+[32m+[m[32m        <div class="contactForm__actions">[m
+[32m+[m[32m          <%= f.submit "送信する", class: "contactForm__submit" %>[m
+[32m+[m[32m        </div>[m
+[32m+[m
+[32m+[m[32m      <% end %>[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m  </div>[m
+[32m+[m[32m</div>[m
+\ No newline at end of file[m
+[1mdiff --git a/app/views/pages/home.html.erb b/app/views/pages/home.html.erb[m
+[1mindex 0b6bc1e..7c53a50 100644[m
+[1m--- a/app/views/pages/home.html.erb[m
+[1m+++ b/app/views/pages/home.html.erb[m
+[36m@@ -82,7 +82,7 @@[m
+     <div class="bizGrid">[m
+       <div class="card bizCard">[m
+         <div class="bizCard__icon">[m
+[31m-          <%= image_tag "business/store.png", alt: "店舗運営", class: "bizCard__img" %>[m
+[32m+[m[32m          <%= image_tag "business/store", alt: "店舗運営", class: "bizCard__img" %>[m
+         </div>[m
+         <h3 class="card__title">店舗運営</h3>[m
+         <p class="card__text">[m
+[36m@@ -92,7 +92,7 @@[m
+ [m
+       <div class="card bizCard">[m
+         <div class="bizCard__icon">[m
+[31m-          <%= image_tag "business/event.png", alt: "イベントの企画運営管理", class: "bizCard__img" %>[m
+[32m+[m[32m          <%= image_tag "business/event", alt: "イベントの企画運営管理", class: "bizCard__img" %>[m
+         </div>[m
+         <h3 class="card__title">イベントの企画運営管理</h3>[m
+         <p class="card__text">[m
+[36m@@ -102,7 +102,7 @@[m
+ [m
+       <div class="card bizCard">[m
+         <div class="bizCard__icon">[m
+[31m-          <%= image_tag "business/consulting.png", alt: "コンサルティング事業", class: "bizCard__img" %>[m
+[32m+[m[32m          <%= image_tag "business/consulting", alt: "コンサルティング事業", class: "bizCard__img" %>[m
+         </div>[m
+         <h3 class="card__title">コンサルティング事業</h3>[m
+         <p class="card__text">[m
+[36m@@ -112,7 +112,7 @@[m
+ [m
+       <div class="card bizCard">[m
+         <div class="bizCard__icon">[m
+[31m-          <%= image_tag "business/sales.png", alt: "生体販売", class: "bizCard__img" %>[m
+[32m+[m[32m          <%= image_tag "business/sales", alt: "生体販売", class: "bizCard__img" %>[m
+         </div>[m
+         <h3 class="card__title">生体販売</h3>[m
+         <p class="card__text">[m
+[1mdiff --git a/app/views/store/index.html.erb b/app/views/store/index.html.erb[m
+[1mindex 0e33303..970b699 100644[m
+[1m--- a/app/views/store/index.html.erb[m
+[1m+++ b/app/views/store/index.html.erb[m
+[36m@@ -1,2 +1,34 @@[m
+[31m-<h1>Store</h1>[m
+[31m-<p>準備中</p>[m
+\ No newline at end of file[m
+[32m+[m[32m<section class="section">[m
+[32m+[m[32m  <div class="section__inner">[m
+[32m+[m[32m    <header class="section__head">[m
+[32m+[m[32m      <h1 class="section__title">Store</h1>[m
+[32m+[m[32m      <p class="section__lead">店舗一覧（後で写真・文言を差し替え）</p>[m
+[32m+[m[32m    </header>[m
+[32m+[m
+[32m+[m[32m    <section class="store-grid">[m
+[32m+[m[32m      <% (@stores || []).each do |store| %>[m
+[32m+[m[32m        <article class="store-card">[m
+[32m+[m[32m          <div class="store-card__photo store-card__photo--placeholder">[m
+[32m+[m[32m            <span>PHOTO</span>[m
+[32m+[m[32m          </div>[m
+[32m+[m
+[32m+[m[32m          <div class="store-card__body">[m
+[32m+[m[32m            <h2 class="store-card__name"><%= store[:name] %></h2>[m
+[32m+[m[32m            <p class="store-card__facility"><%= store[:facility] %></p>[m
+[32m+[m
+[32m+[m[32m            <dl class="store-card__meta">[m
+[32m+[m[32m              <div>[m
+[32m+[m[32m                <dt>住所</dt>[m
+[32m+[m[32m                <dd><%= store[:address] %></dd>[m
+[32m+[m[32m              </div>[m
+[32m+[m[32m              <div>[m
+[32m+[m[32m                <dt>電話</dt>[m
+[32m+[m[32m                <dd><a href="tel:<%= store[:tel] %>"><%= store[:tel] %></a></dd>[m
+[32m+[m[32m              </div>[m
+[32m+[m[32m            </dl>[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m        </article>[m
+[32m+[m[32m      <% end %>[m
+[32m+[m[32m    </section>[m
+[32m+[m[32m  </div>[m
+[32m+[m[32m</section>[m
+\ No newline at end of file[m
+[1mdiff --git a/config/routes.rb b/config/routes.rb[m
+[1mindex 69c7480..b06dcc7 100644[m
+[1m--- a/config/routes.rb[m
+[1m+++ b/config/routes.rb[m
+[36m@@ -11,7 +11,9 @@[m [mRails.application.routes.draw do[m
+ [m
+   get "store",   to: "store#index"[m
+   get "company", to: "company#index"[m
+[31m-  get "contact", to: "contact#index"[m
+[32m+[m[32m  get  "contact",        to: "contact#index"[m
+[32m+[m[32m  post "contact",        to: "contact#create"[m
+[32m+[m[32m  get  "contact/thanks", to: "contact#thanks", as: :contact_thanks[m
+ [m
+   # お問い合わせ送信（POSTだけ）[m
+   resources :inquiries, only: [:create][m

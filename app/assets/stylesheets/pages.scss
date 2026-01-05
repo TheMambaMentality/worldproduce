@@ -75,17 +75,13 @@
   opacity: 0.75;
 }
 
-.slide__title {
-  margin: 0;
-  font-size: clamp(40px, 6vw, 72px);
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-}
+.slide__title { font-size: 40px; }
+@media (min-width: 700px)  { .slide__title { font-size: 56px; } }
+@media (min-width: 1100px) { .slide__title { font-size: 72px; } }
 
-.slide__title--jp {
-  font-size: clamp(28px, 4.2vw, 56px);
-  letter-spacing: -0.01em;
-}
+.slide__title--jp { font-size: 28px; }
+@media (min-width: 700px)  { .slide__title--jp { font-size: 42px; } }
+@media (min-width: 1100px) { .slide__title--jp { font-size: 56px; } }
 
 .slide__lead {
   margin: 14px 0 0;
@@ -291,3 +287,41 @@
 .btn--ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
 
 /* NOTE: News の .newsList/.newsItem はここに置かない（news.scssへ） */
+
+
+/* =========================================================
+   Common "Page" frame (Store / Company / Contact etc.)
+   - Top(Home)の既存スタイルとは独立させるため、クラスは page__* に寄せる
+   ========================================================= */
+
+.page {
+  padding: 56px 0;
+}
+
+.page__inner {
+  width: 92%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page__header {
+  margin-bottom: 24px;
+}
+
+.page__title {
+  font-size: 32px;
+  letter-spacing: 0.02em;
+  margin: 0 0 8px;
+}
+
+.page__lead {
+  margin: 0;
+  opacity: 0.75;
+}
+
+.content-box {
+  padding: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  background: #fff;
+}

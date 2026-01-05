@@ -1,3 +1,21 @@
-// Place all the styles related to the Company controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.company-table {
+    display: grid;
+    gap: 16px;
+  }
+  
+  .company-table > div {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 12px;
+  }
+  
+  .company-table dt {
+    font-size: 13px;
+    opacity: 0.6;
+  }
+  
+  .company-table dd {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }

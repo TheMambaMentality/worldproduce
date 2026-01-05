@@ -1,3 +1,91 @@
-// Place all the styles related to the Contact controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+/* Contact page */
+
+.contactForm {
+    display: grid;
+    gap: 18px;
+  }
+  
+  .contactForm__grid2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+  
+  @media (max-width: 860px) {
+    .contactForm__grid2 { grid-template-columns: 1fr; }
+  }
+  
+  .contactForm__field {
+    display: grid;
+    gap: 8px;
+  }
+  
+  .contactForm__label {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+  }
+  
+  .contactForm__input,
+  .contactForm__textarea {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.14);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 14px;
+    background: #fff;
+    outline: none;
+  }
+  
+  .contactForm__textarea {
+    resize: vertical;
+    min-height: 220px;
+  }
+  
+  .contactForm__input:focus,
+  .contactForm__textarea:focus {
+    border-color: rgba(0,0,0,0.28);
+  }
+  
+  .contactForm__radios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 18px;
+    align-items: center;
+  }
+  
+  .contactForm__radioItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .contactForm__radio {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .contactForm__radioLabel {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .contactForm__actions {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .contactForm__submit {
+    appearance: none;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-weight: 800;
+    cursor: pointer;
+    background: #111;
+    color: #fff;
+  }
+  
+  .contactForm__submit:hover {
+    opacity: 0.92;
+  }

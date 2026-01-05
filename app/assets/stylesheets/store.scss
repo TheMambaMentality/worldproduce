@@ -1,3 +1,85 @@
-// Place all the styles related to the Store controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+/* app/assets/stylesheets/store.scss */
+
+.store-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  
+  @media (max-width: 980px) {
+    .store-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  @media (max-width: 640px) {
+    .store-grid { grid-template-columns: 1fr; }
+  }
+  
+  .store-card {
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+  }
+  
+  .store-card__photo {
+    aspect-ratio: 16 / 10;
+    background: rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .store-card__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* 使わないなら消してOK（今のerbでは使ってない） */
+  .store-card__photo--placeholder span {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    opacity: 0.6;
+  }
+  
+  .store-card__body {
+    padding: 14px 14px 16px;
+  }
+  
+  .store-card__name {
+    font-size: 18px;
+    margin: 0 0 6px;
+  }
+  
+  .store-card__facility {
+    margin: 0 0 10px;
+    opacity: 0.75;
+    font-size: 14px;
+  }
+  
+  .store-card__meta {
+    margin: 0;
+    display: grid;
+    gap: 10px;
+  }
+  
+  .store-card__meta dt {
+    font-size: 12px;
+    opacity: 0.6;
+    margin-bottom: 2px;
+  }
+  
+  .store-card__meta dd {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .store-card__meta a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .store-card__meta a:hover {
+    text-decoration: underline;
+  }
