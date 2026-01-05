@@ -1,6 +1,7 @@
 /*
- *= require_tree .
  *= require_self
+ *= require pages
+ *= require news
  */
 
  :root {
@@ -14,7 +15,8 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
   color: #111;
   background: #fff;
 }

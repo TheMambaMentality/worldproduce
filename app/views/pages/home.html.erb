@@ -1,42 +1,123 @@
-<div class="hero">
-  <div class="hero__overlay"></div>
+<div class="intro" id="intro">
+  <div class="intro__sticky">
+    <video class="intro__video" autoplay muted loop playsinline preload="metadata">
+      <source src="/videos/hero.mp4" type="video/mp4">
+    </video>
+    <div class="intro__shade"></div>
 
-  <div class="hero__inner">
-    <p class="hero__eyebrow">WORLD PRODUCE</p>
-    <h1 class="hero__title">World Produce</h1>
-    <p class="hero__subtitle">価値を、世界へ。</p>
+    <div class="intro__slides">
+      <!-- Slide 1 -->
+      <section class="slide is-active" data-slide="0" aria-label="World Produce">
+        <p class="slide__eyebrow">WORLD PRODUCE</p>
+        <h1 class="slide__title">World Produce</h1>
+        <p class="slide__lead">価値を、世界へ。</p>
+        <div class="slide__actions">
+          <a class="btn btn--primary" href="<%= company_path %>">Company</a>
+          <a class="btn btn--ghost" href="<%= contact_path %>">Contact</a>
+        </div>
+      </section>
 
-    <div class="hero__actions">
-      <a class="btn btn--primary" href="<%= company_path %>">Company</a>
-      <a class="btn btn--ghost" href="<%= contact_path %>">Contact</a>
+      <!-- Slide 2 -->
+      <section class="slide" data-slide="1" aria-label="世界は、創れる。遊べる。">
+        <h2 class="slide__title slide__title--jp">世界は、創れる。遊べる。</h2>
+        <p class="slide__lead">
+          人は「体験」を得ることで多くの「学び」を得ることができる。<br>
+          それは自身の成長と社会への貢献につながる。<br>
+          そのきっかけを作るため挑戦し、ワクワクを届け続ける。
+        </p>
+      </section>
+
+      <!-- Slide 3 -->
+      <section class="slide" data-slide="2" aria-label="提供価値">
+        <p class="slide__eyebrow">提供価値</p>
+        <div class="valueGrid">
+          <div class="valueCard valueCard--red">
+            <h3 class="valueCard__title">動画の有効活用</h3>
+            <p class="valueCard__text">空き教室・施設を撮影環境として活用し、体験型学習の場として有効活用。</p>
+          </div>
+
+          <div class="valueCard valueCard--blue">
+            <h3 class="valueCard__title">幅広い世代の参加促進</h3>
+            <p class="valueCard__text">子供・保護者・高齢者まで、世代を超えた参加しやすいイベント。</p>
+          </div>
+
+          <div class="valueCard valueCard--yellow">
+            <h3 class="valueCard__title">満足度・参加意欲の向上</h3>
+            <p class="valueCard__text">「見る」だけでなく「触れる・学ぶ」で、没入感ある体験を提供。</p>
+          </div>
+
+          <div class="valueCard valueCard--pink">
+            <h3 class="valueCard__title">話題性・PR効果の拡大</h3>
+            <p class="valueCard__text">広告媒体に活用しやすく、SNS・チラシ連携で集客を強化。</p>
+          </div>
+
+          <div class="valueCard valueCard--green">
+            <h3 class="valueCard__title">地域社会・教育機関との連携強化</h3>
+            <p class="valueCard__text">教育的・社会的役割を果たし、地域のブランド価値を高める。</p>
+          </div>
+
+          <div class="valueCard valueCard--teal">
+            <h3 class="valueCard__title">地域事業との親和性</h3>
+            <p class="valueCard__text">目的・効果・成果が明確なイベント設計で、持続可能な運営へ。</p>
+          </div>
+        </div>
+      </section>
     </div>
-  </div>
 
-  <div class="hero__scroll" aria-hidden="true">
-    <span class="hero__scrollLine"></span>
-    <span class="hero__scrollText">SCROLL</span>
+    <div class="intro__scroll" aria-hidden="true">
+      <span class="intro__scrollLine"></span>
+      <span class="intro__scrollText">SCROLL</span>
+    </div>
   </div>
 </div>
 
+<!-- ここから先は“通常スクロール”で下へ -->
 <section class="section">
   <div class="section__inner">
     <h2 class="section__title">事業内容</h2>
     <p class="section__lead">
-      世界へ価値を届けるために、企画・流通・運営まで一気通貫で支援します。
+      昆虫・爬虫類・宝石の3軸を中心に、店舗運営からイベント、コンサル、生体販売まで一気通貫で支援します。
     </p>
 
-    <div class="grid3">
-      <div class="card">
-        <h3 class="card__title">Planning</h3>
-        <p class="card__text">市場調査と企画設計で、成果につながる打ち手を設計。</p>
+    <div class="bizGrid">
+      <div class="card bizCard">
+        <div class="bizCard__icon">
+          <%= image_tag "business/store.png", alt: "店舗運営", class: "bizCard__img" %>
+        </div>
+        <h3 class="card__title">店舗運営</h3>
+        <p class="card__text">
+          関西圏を中心に7店舗を運営。昆虫・爬虫類・宝石の3軸で、テーマパーク内での店舗を運営。
+        </p>
       </div>
-      <div class="card">
-        <h3 class="card__title">Distribution</h3>
-        <p class="card__text">国内外の流通を最適化し、スピードと品質を両立。</p>
+
+      <div class="card bizCard">
+        <div class="bizCard__icon">
+          <%= image_tag "business/event.png", alt: "イベントの企画運営管理", class: "bizCard__img" %>
+        </div>
+        <h3 class="card__title">イベントの企画運営管理</h3>
+        <p class="card__text">
+          催事やイベント会場などで、昆虫・爬虫類のふれあい体験などのイベントを実施。
+        </p>
       </div>
-      <div class="card">
-        <h3 class="card__title">Operation</h3>
-        <p class="card__text">運用を継続改善し、成長の仕組みをつくる。</p>
+
+      <div class="card bizCard">
+        <div class="bizCard__icon">
+          <%= image_tag "business/consulting.png", alt: "コンサルティング事業", class: "bizCard__img" %>
+        </div>
+        <h3 class="card__title">コンサルティング事業</h3>
+        <p class="card__text">
+          店舗・イベント問わず弊社のノウハウを提供。FC店舗実績あり。
+        </p>
+      </div>
+
+      <div class="card bizCard">
+        <div class="bizCard__icon">
+          <%= image_tag "business/sales.png", alt: "生体販売", class: "bizCard__img" %>
+        </div>
+        <h3 class="card__title">生体販売</h3>
+        <p class="card__text">
+          店舗で扱う用と同じハイクオリティな生体をお客様へ。販売は店舗とオンラインにて。
+        </p>
       </div>
     </div>
   </div>
@@ -44,25 +125,24 @@
 
 <section class="section section--alt">
   <div class="section__inner">
-    <h2 class="section__title">強み</h2>
+    <h2 class="section__title">News</h2>
 
-    <div class="grid2">
-      <div class="card card--flat">
-        <h3 class="card__title">Global Network</h3>
-        <p class="card__text">海外パートナーとの連携で、最短距離の展開を実現。</p>
-      </div>
-      <div class="card card--flat">
-        <h3 class="card__title">Quality First</h3>
-        <p class="card__text">品質基準を明確化し、安定した供給体制を構築。</p>
-      </div>
-      <div class="card card--flat">
-        <h3 class="card__title">Speed</h3>
-        <p class="card__text">意思決定を速く、実行を早く。機会損失を最小化。</p>
-      </div>
-      <div class="card card--flat">
-        <h3 class="card__title">One Team</h3>
-        <p class="card__text">伴走型でチームに入り込み、成果まで一緒に走る。</p>
-      </div>
+    <div class="newsList">
+      <% @latest_news.each do |article| %>
+        <article class="newsItem">
+          <time class="newsItem__date">
+            <%= article.published_at.strftime("%Y.%m.%d") %>
+          </time>
+
+          <h3 class="newsItem__title">
+            <%= link_to article.title, news_path(article) %>
+          </h3>
+        </article>
+      <% end %>
+    </div>
+
+    <div class="newsMore">
+      <%= link_to "News一覧へ", news_index_path, class: "btn btn--ghost" %>
     </div>
   </div>
 </section>
@@ -75,7 +155,7 @@
     </div>
     <div class="cta__actions">
       <a class="btn btn--primary" href="<%= contact_path %>">Contact</a>
-      <a class="btn btn--ghost" href="<%= news_path %>">News</a>
+      <a class="btn btn--ghost" href="<%= news_index_path %>">News</a>
     </div>
   </div>
 </section>

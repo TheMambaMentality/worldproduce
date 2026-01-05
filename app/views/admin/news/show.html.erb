@@ -1,0 +1,25 @@
+<h1><%= @article.title %></h1>
+<p>公開日時: <%= @article.published_at %></p>
+
+<div>
+  <%= simple_format(@article.body) %>
+</div>
+
+<% if @article.images.attached? %>
+  <h3>画像</h3>
+
+  <% @article.images.each do |img| %>
+    <div style="margin: 10px 0;">
+      <% if img.variable? %>
+        <%= image_tag img.variant(resize_to_limit: [600, 600]) %>
+      <% else %>
+        <%= image_tag img %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
+<p>
+  <%= link_to "編集", edit_admin_news_path(@article) %> |
+  <%= link_to "一覧", admin_news_index_path %>
+</p>
