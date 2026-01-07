@@ -4,13 +4,13 @@
 :root {
   --container: 1200px;
   --gutter: 24px;
-  --header-h: 72px;
+  --header-h: 104px;
   --border: rgba(0,0,0,0.08);
 }
 
 /* ===== Intro (Hero Video) ===== */
 .intro {
-  height: 300vh;
+  height: 500vh;
   --intro-dim: 0.25;
   --intro-blur: 0px;
   --intro-scale: 1.03;
@@ -99,7 +99,7 @@
   flex-wrap: wrap;
 }
 
-/* ===== Value Grid (if you use it in hero) ===== */
+/* ===== Value Grid ===== */
 .valueGrid {
   margin-top: 22px;
   width: 100%;
@@ -165,25 +165,97 @@
 
 /* ===== Sections ===== */
 .section { padding: 72px 0; }
-.section--alt {
-  background: #fafafa;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
+
 .section__inner {
   max-width: var(--container);
   margin: 0 auto;
   padding: 0 var(--gutter);
 }
+
+/* ✅ eyebrow はそのまま（小見出し） */
+.section__eyebrow {
+  margin: 0 0 10px;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: #777;
+  font-weight: 800;
+}
+
+/* ✅ タイトルを強化（全体） */
 .section__title {
   margin: 0 0 14px;
-  font-size: 22px;
-  letter-spacing: -0.01em;
+  font-size: 30px;              /* ← 22px → 30px */
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
+
+.section__title--strong {
+  font-size: 34px;
+  font-weight: 900;
+}
+
+@media (min-width: 900px) {
+  .section__title--strong {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 900px) {
+  .section__title { font-size: 34px; }
+}
+
+/* ✅ リードは少し読みやすく */
 .section__lead {
   margin: 0 0 26px;
   color: #444;
-  line-height: 1.8;
+  line-height: 1.9;
+  max-width: 860px;
+}
+
+/* ===== ABOUT (見出しも強制的に大きく) ===== */
+.about--center {
+  text-align: left;
+}
+
+.about__headline {
+  margin: 0 0 10px;
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+@media (min-width: 900px) {
+  .about__headline { font-size: 44px; }
+}
+
+.about__sub {
+  margin: 0 0 18px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #444;
+}
+
+.about__bodyBox {
+  max-width: 100%;            /* 980px をやめる */
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  background: #fff;
+  padding: 22px 22px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.05);
+}
+
+.about__bodyInner {
+  display: grid;
+  gap: 16px;
+}
+
+.about__body {
+  margin: 0;
+  line-height: 2.0;
+  color: #222;
+  font-size: 14px;
 }
 
 /* ===== Utility grids ===== */
@@ -201,6 +273,49 @@
   .grid3, .grid2 { grid-template-columns: 1fr; }
 }
 
+/* ===== Timeline (WORKS) ===== */
+.timeline {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.timelineItem {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0;
+  padding: 18px 20px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.timelineItem:first-child { border-top: none; }
+
+.timelineItem__date {
+  font-weight: 800;
+  color: #666;
+  letter-spacing: 0.04em;
+  font-size: 13px;
+}
+
+.timelineItem__title {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #111;
+}
+
+.timelineItem__text {
+  margin: 0;
+  color: #444;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+@media (max-width: 800px) {
+  .timelineItem { grid-template-columns: 1fr; }
+}
+
 /* ===== Business grid ===== */
 .bizGrid {
   display: grid;
@@ -214,17 +329,17 @@
   .bizGrid { grid-template-columns: 1fr; }
 }
 
-/* Cards (biz cards etc.) */
+/* Cards */
 .card {
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 18px;
   background: #fff;
 }
-.card--flat { background: transparent; }
 .card__title { margin: 0 0 10px; font-size: 16px; }
 .card__text { margin: 0; color: #444; line-height: 1.7; }
 
+/* ✅ 見切れ対策 */
 .bizCard__icon {
   width: 144px;
   height: 144px;
@@ -233,15 +348,16 @@
   overflow: hidden;
   display: grid;
   place-items: center;
-  background: rgba(0,0,0,0.04);
-  border: 1px solid rgba(0,0,0,0.06);
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.10);
+  padding: 14px;
 }
 .bizCard__img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transform: scale(1.25);
   display: block;
+  transform: none;
 }
 
 /* ===== CTA ===== */
@@ -286,17 +402,8 @@
 .btn--primary { background: #fff; color: #111; }
 .btn--ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
 
-/* NOTE: News の .newsList/.newsItem はここに置かない（news.scssへ） */
-
-
-/* =========================================================
-   Common "Page" frame (Store / Company / Contact etc.)
-   - Top(Home)の既存スタイルとは独立させるため、クラスは page__* に寄せる
-   ========================================================= */
-
-.page {
-  padding: 56px 0;
-}
+/* Common page frame */
+.page { padding: 56px 0; }
 
 .page__inner {
   width: 92%;
@@ -304,9 +411,7 @@
   margin: 0 auto;
 }
 
-.page__header {
-  margin-bottom: 24px;
-}
+.page__header { margin-bottom: 24px; }
 
 .page__title {
   font-size: 32px;
@@ -324,4 +429,96 @@
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 12px;
   background: #fff;
+}
+
+/* ===== Section Background Layers ===== */
+
+/* デフォルト（白ではなく薄いグレー基調） */
+.section {
+  background: #f7f7f7;
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+
+/* ABOUT：ほんのり明るく、読み物ゾーン */
+.section--about {
+  background: linear-gradient(
+    180deg,
+    #fafafa 0%,
+    #f4f4f4 100%
+  );
+}
+
+/* WORKS：実績は少し締める */
+.section--works {
+  background: #f2f2f2;
+}
+
+/* BUSINESS：指定どおり「白」固定 */
+.section--biz {
+  background: #f6f6f6;
+}
+
+/* NEWS：白に近いがコントラストあり */
+.section--news {
+  background: #f6f6f6;
+}
+
+/* CTA：既存の黒をそのまま */
+.cta {
+  background: #111;
+}
+
+/* セクションの“面の切り替え”を強調 */
+.section + .section {
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.04);
+}
+
+/* =========================================================
+   ✅ 追記：提供価値（valueCard）の色分けを復活（ここだけ）
+   - 既存レイアウトには一切影響しない
+   - class="valueCard valueCard--red" の --red 部分を拾う
+   ========================================================= */
+
+.valueCard {
+  border-radius: 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: rgba(255,255,255,0.72);
+}
+
+/* 色は「左のアクセント + うっすら面」だけにして上品に戻す */
+.valueCard--red {
+  border-left: 4px solid rgba(255, 59, 48, 0.55);
+  background: linear-gradient(90deg, rgba(255, 59, 48, 0.10), rgba(255,255,255,0.70));
+}
+.valueCard--blue {
+  border-left: 4px solid rgba(0, 122, 255, 0.55);
+  background: linear-gradient(90deg, rgba(0, 122, 255, 0.10), rgba(255,255,255,0.70));
+}
+.valueCard--yellow {
+  border-left: 4px solid rgba(255, 204, 0, 0.60);
+  background: linear-gradient(90deg, rgba(255, 204, 0, 0.12), rgba(255,255,255,0.70));
+}
+.valueCard--pink {
+  border-left: 4px solid rgba(255, 45, 85, 0.55);
+  background: linear-gradient(90deg, rgba(255, 45, 85, 0.10), rgba(255,255,255,0.70));
+}
+.valueCard--green {
+  border-left: 4px solid rgba(52, 199, 89, 0.55);
+  background: linear-gradient(90deg, rgba(52, 199, 89, 0.10), rgba(255,255,255,0.70));
+}
+.valueCard--teal {
+  border-left: 4px solid rgba(48, 176, 199, 0.55);
+  background: linear-gradient(90deg, rgba(48, 176, 199, 0.10), rgba(255,255,255,0.70));
+}
+
+/* Top News「News一覧へ」リンク */
+.news-more,
+.news-more a {
+  color: #111;
+  opacity: 1;
+}
+
+.news-more a:hover {
+  opacity: 0.7; /* 任意：ホバーだけ少し反応 */
 }

@@ -2,14 +2,14 @@
   <div class="section__inner">
     <header class="section__head">
       <h1 class="section__title">Store</h1>
-      <p class="section__lead">店舗一覧（後で写真・文言を差し替え）</p>
+      <p class="section__lead">店舗一覧</p>
     </header>
 
     <section class="store-grid">
       <% (@stores || []).each do |store| %>
         <article class="store-card">
-          <div class="store-card__photo store-card__photo--placeholder">
-            <span>PHOTO</span>
+          <div class="store-card__photo">
+            <%= image_tag "stores/#{store[:image]}", alt: store[:name] %>
           </div>
 
           <div class="store-card__body">
@@ -19,13 +19,23 @@
             <dl class="store-card__meta">
               <div>
                 <dt>住所</dt>
-                <dd><%= store[:address] %></dd>
+                <dd>
+                  <a href="<%= store[:map_url] %>" target="_blank" rel="noopener">
+                    <%= store[:address] %>
+                  </a>
+                </dd>
               </div>
               <div>
                 <dt>電話</dt>
                 <dd><a href="tel:<%= store[:tel] %>"><%= store[:tel] %></a></dd>
               </div>
             </dl>
+
+            <p class="store-card__map">
+              <a href="<%= store[:map_url] %>" target="_blank" rel="noopener">
+                Google Mapで見る
+              </a>
+            </p>
           </div>
         </article>
       <% end %>

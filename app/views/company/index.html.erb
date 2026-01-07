@@ -1,32 +1,170 @@
-<div class="page">
+<div class="page company">
   <div class="page__inner">
 
     <header class="page__header">
       <h1 class="page__title">Company</h1>
       <p class="page__lead">
-        会社概要の簡単な説明文が入ります。あとで差し替え予定。
+        WORLD PRODUCE CO., LTD の会社概要・所在地・沿革をご案内します。
       </p>
     </header>
 
-    <section class="content-box">
-      <dl class="company-table">
-        <div>
-          <dt>会社名</dt>
-          <dd>株式会社〇〇</dd>
+    <!-- 会社概要 -->
+    <section class="content-box companyCard">
+      <h2 class="companyCard__title">会社概要</h2>
+
+      <dl class="companyTable">
+        <div class="companyRow">
+          <dt>名称</dt>
+          <dd>
+            株式会社ワールドプロデュース<br>
+            <span class="companyTable__sub">（英語名：WORLD PRODUCE CO., LTD）</span>
+          </dd>
         </div>
-        <div>
-          <dt>所在地</dt>
-          <dd>東京都〇〇区〇〇</dd>
-        </div>
-        <div>
+
+        <div class="companyRow">
           <dt>設立</dt>
-          <dd>20XX年X月</dd>
+          <dd>2000年4月</dd>
         </div>
-        <div>
-          <dt>事業内容</dt>
-          <dd>イベント企画・店舗運営 ほか</dd>
+
+        <div class="companyRow">
+          <dt>代表者</dt>
+          <dd>吉井　三華</dd>
+        </div>
+
+        <div class="companyRow">
+          <dt>資本金</dt>
+          <dd>1,000万円（2025年12月末現在）</dd>
+        </div>
+
+        <div class="companyRow">
+          <dt>売上高</dt>
+          <dd>3,000万円（2025年12月末現在）</dd>
+        </div>
+
+        <div class="companyRow">
+          <dt>本社所在地</dt>
+          <dd>
+            〒531-0072<br>
+            大阪府東大阪市長田西2丁目6番30号
+          </dd>
+        </div>
+
+        <div class="companyRow">
+          <dt>従業員数</dt>
+          <dd>7人</dd>
+        </div>
+
+        <div class="companyRow">
+          <dt>連絡先一覧</dt>
+          <dd>
+            管理本部：06-7162-4158<br>
+            営業担当：XXX-XXXX-XXXX<br>
+            採用担当：XXX-XXXX-XXXX<br>
+            販売担当：XXX-XXXX-XXXX
+          </dd>
+        </div>
+
+        <div class="companyRow">
+          <dt>関係会社</dt>
+          <dd class="companyAffiliates">
+            <div class="affiliate">
+              <div class="affiliate__name">株式会社 界ファーム</div>
+              <div class="affiliate__addr">
+                〒590-0125<br>
+                大阪府堺市南区鉢ヶ峯寺2405-2
+              </div>
+            </div>
+
+            <div class="affiliate">
+              <div class="affiliate__name">南淡路農業公園株式会社</div>
+              <div class="affiliate__addr">
+                〒656-0443<br>
+                兵庫県南あわじ市八木養宜上1401番地
+              </div>
+            </div>
+
+            <div class="affiliate">
+              <div class="affiliate__name">株式会社 クラウデイト</div>
+              <div class="affiliate__addr">
+                〒679-2431<br>
+                兵庫県神崎郡神河町猪篠1868番地
+              </div>
+            </div>
+
+            <div class="affiliate">
+              <div class="affiliate__name">和歌山マリーナシティ株式会社</div>
+              <div class="affiliate__addr">
+                〒641-0014<br>
+                和歌山県和歌山市毛見1527番地
+              </div>
+            </div>
+          </dd>
         </div>
       </dl>
+    </section>
+
+    <!-- Map -->
+    <section class="content-box companyCard">
+      <div class="companyCard__head">
+        <h2 class="companyCard__title">本社所在地</h2>
+        <p class="companyCard__hint">〒531-0072 大阪府東大阪市長田西2丁目6番30号</p>
+      </div>
+
+      <div class="mapCard">
+        <iframe
+          class="mapCard__iframe"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=%E5%A4%A7%E9%98%AA%E5%BA%9C%E6%9D%B1%E5%A4%A7%E9%98%AA%E5%B8%82%E9%95%B7%E7%94%B0%E8%A5%BF2-6-30&output=embed">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- 沿革 -->
+    <section class="content-box companyCard">
+      <h2 class="companyCard__title">沿革</h2>
+
+      <div class="history">
+        <div class="historyItem">
+          <div class="historyItem__date">2000年4月</div>
+          <div class="historyItem__text">東京都渋谷区などにて有限会社ワールドプロデュースを設立。</div>
+        </div>
+
+        <div class="historyItem">
+          <div class="historyItem__date">2003年6月</div>
+          <div class="historyItem__text">事業拡大に伴い、株式会社へ組織変更。資本金を1,000万円に増資。</div>
+        </div>
+
+        <div class="historyItem">
+          <div class="historyItem__date">2005年9月</div>
+          <div class="historyItem__text">企業向けイベント事業部を新設。</div>
+        </div>
+
+        <div class="historyItem">
+          <div class="historyItem__date">2008年11月</div>
+          <div class="historyItem__text">株主総会、表彰式、周年記念イベントなどの総合プロデュースを開始。</div>
+        </div>
+
+        <div class="historyItem">
+          <div class="historyItem__date">2011年5月</div>
+          <div class="historyItem__text">東日本大震災を受け、復興支援プロジェクト「心に灯を」を発足。</div>
+        </div>
+
+        <div class="historyItem">
+          <div class="historyItem__date">2014年2月</div>
+          <div class="historyItem__text">初の海外案件（アジア圏での日本文化紹介イベント）を受注。</div>
+        </div>
+
+        <div class="historyItem">
+          <div class="historyItem__date">2020年5月</div>
+          <div class="historyItem__text">新型コロナウイルス感染拡大に伴い、オンラインイベント特化チームを発足。</div>
+        </div>
+
+        <div class="historyItem">
+          <div class="historyItem__date">2025年4月</div>
+          <div class="historyItem__text">創立25周年を迎える。</div>
+        </div>
+      </div>
     </section>
 
   </div>
