@@ -1,0 +1,24 @@
+{
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/vendor/**": true,
+    "**/tmp/**": true,
+    "**/log/**": true,
+    "**/public/**": true,
+    "**/storage/**": true,
+    "**/.git/**": true
+  },
+  "search.exclude": {
+    "**/node_modules/**": true,
+    "**/vendor/**": true,
+    "**/tmp/**": true,
+    "**/log/**": true,
+    "**/public/**": true,
+    "**/storage/**": true
+  },
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "javascript.suggest.autoImports": false,
+  "typescript.suggest.autoImports": false,
+  "javascript.implicitProjectConfig.checkJs": false,
+  "typescript.tsserver.maxTsServerMemory": 768
+}

@@ -10,14 +10,34 @@
   </head>
 
   <body>
-    <header class="site-header">
-      <div class="container">
-        <div class="site-header__inner">
-          <%= link_to root_path, class: "site-header__brand" do %>
-            <%= image_tag "logo.jpg", alt: "WORLD PRODUCE", class: "site-header__logo" %>
-          <% end %>
+    <!-- ================= Header ================= -->
+    <header class="site-header site-header--thick">
+      <div class="site-header__inner">
+        <!-- Logo -->
+        <%= link_to root_path, class: "site-header__brand" do %>
+          <%= image_tag "logo.jpg", alt: "WORLD PRODUCE", class: "site-header__logo" %>
+        <% end %>
 
-          <nav class="site-header__nav" aria-label="Primary">
+        <!-- Nav -->
+        <div class="site-header__navWrap">
+          <!-- Top row : Instagram -->
+          <div class="site-header__sns">
+            <a
+              href="https://www.instagram.com/reptile__life365/"
+              target="_blank"
+              rel="noopener"
+              class="site-header__snsLink"
+            >
+              <!-- Instagram SVG -->
+              <svg viewBox="0 0 24 24" class="site-header__snsIcon" aria-hidden="true">
+                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm4.5 3.5a5 5 0 1 1 0 10a5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6a3 3 0 0 0 0-6zm5.25-.88a1.13 1.13 0 1 1 0 2.26a1.13 1.13 0 0 1 0-2.26z"/>
+              </svg>
+              <span>Instagram</span>
+            </a>
+          </div>
+
+          <!-- Bottom row : Main nav -->
+          <nav class="site-header__nav">
             <%= link_to "News", news_index_path, class: "site-header__link" %>
             <%= link_to "Store", store_path, class: "site-header__link" %>
             <%= link_to "Company", company_path, class: "site-header__link" %>
@@ -31,11 +51,38 @@
       <%= yield %>
     </main>
 
-    <footer class="site-footer">
-      <div class="container">
-        <div class="site-footer__inner">
-          © 2026 Worldproduce
+    <!-- ================= Footer ================= -->
+    <footer class="site-footer site-footer--bold">
+      <div class="site-footer__inner">
+        <!-- Left -->
+        <div class="site-footer__brand">
+          <div class="site-footer__title">World Produce</div>
+          <div class="site-footer__copy">© 2026 Worldproduce</div>
         </div>
+
+        <!-- Right -->
+        <nav class="site-footer__nav">
+          <%= link_to "News", news_index_path, class: "site-footer__link" %>
+          <span class="site-footer__divider"></span>
+          <%= link_to "Store", store_path, class: "site-footer__link" %>
+          <span class="site-footer__divider"></span>
+          <%= link_to "Company", company_path, class: "site-footer__link" %>
+          <span class="site-footer__divider"></span>
+          <%= link_to "Contact", contact_path, class: "site-footer__link" %>
+          <span class="site-footer__divider"></span>
+
+          <a
+            href="https://www.instagram.com/reptile__life365/"
+            target="_blank"
+            rel="noopener"
+            class="site-footer__link site-footer__instagram"
+          >
+            <svg viewBox="0 0 24 24" class="site-footer__snsIcon" aria-hidden="true">
+              <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm4.5 3.5a5 5 0 1 1 0 10a5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6a3 3 0 0 0 0-6zm5.25-.88a1.13 1.13 0 1 1 0 2.26a1.13 1.13 0 0 1 0-2.26z"/>
+            </svg>
+            Instagram
+          </a>
+        </nav>
       </div>
     </footer>
   </body>

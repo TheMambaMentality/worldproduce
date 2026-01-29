@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   get "store",   to: "store#index"
   get "company", to: "company#index"
-  get "contact", to: "contact#index"
+  get  "contact",        to: "contact#index"
+  post "contact",        to: "contact#create"
+  get  "contact/thanks", to: "contact#thanks", as: :contact_thanks
 
   # お問い合わせ送信（POSTだけ）
   resources :inquiries, only: [:create]
