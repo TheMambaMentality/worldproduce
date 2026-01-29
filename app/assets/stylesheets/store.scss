@@ -98,3 +98,31 @@
 .store-card__map a:hover {
   text-decoration: underline;
 }
+
+/* Google Map + Instagram 横並び */
+.store-card__map {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Instagram icon */
+.store-card__ig {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.store-card__ig svg {
+  width: 18px;
+  height: 18px;
+  fill: #111;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.store-card__ig:hover svg {
+  opacity: 0.7;
+  transform: translateY(-1px);
+}
